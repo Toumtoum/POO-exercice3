@@ -19,6 +19,41 @@
     </head>
     <body>
 
+      <form>
+        TITLE:<br>
+        <input id="title" type="text" name="title" value="">
+        <br>
+        CATCH PHRASE:<br>
+        <input id="catchPhrase" type="text" name="sentence" value="">
+        <br>
+        DESCRIPTION:<br>
+        <input id="description" type="text" name="description" value="">
+        <br><br>
+        <input type="submit" name="button" value="CREATE" onclick="form.getInputVal">
+      </form>
+
+      <div class="container">
+        <h2>Product Sheet</h2>
+
+        <table class="table" id="table">
+          <thead>
+            <tr>
+              <th>TITLE</th>
+              <th>CATCH PHRASE</th>
+              <th>DESCRIPTION</th>
+            </tr>
+          </thead>
+          <tbody id="card">
+              <tr>
+                <td id="productTitle"></td>
+                <td id="productCatchPhrase"></td>
+                <td id="productDescription"></td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+
+
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
