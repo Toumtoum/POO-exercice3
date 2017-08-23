@@ -38,7 +38,7 @@ this.resetInput = function () {
 }
 
 document.getElementById("create").addEventListener('click',function () {
-  var x = new form;
-  x.getInputVal();
-  x.resetInput();
+  var card = new form;
+  card.getInputVal();
+  card.resetInput();
 });
