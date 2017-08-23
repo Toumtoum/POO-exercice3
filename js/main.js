@@ -9,6 +9,7 @@ function product (title,catchPhrase,description){
   var card = document.getElementById('card').cloneNode(true);
   document.getElementById('table').appendChild(card);
   document.getElementById('productTitle').innerHTML = this.title;
+  console.log(this.title);
   document.getElementById('productCatchPhrase').innerHTML = this.catchPhrase;
   document.getElementById('productDescription').innerHTML = this.description;
 
@@ -22,7 +23,6 @@ this.getInputVal = function () {
   var titleValue = document.getElementById('title').value;
   var catchPhraseValue = document.getElementById('catchPhrase').value;
   var descriptionValue = document.getElementById('description').value;
-
   var newCard = new product (titleValue,catchPhraseValue,descriptionValue);
   newCard.display ();
 
@@ -36,3 +36,9 @@ this.resetInput = function () {
 
 }
 }
+
+document.getElementById("create").addEventListener('click',function () {
+  var x = new form;
+  x.getInputVal();
+  x.resetInput();
+});
