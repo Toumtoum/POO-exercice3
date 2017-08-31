@@ -1,44 +1,46 @@
+// CREATING NEW PRODUCT
+
 function product (title,catchPhrase,description){
 
   this.title = title,
   this.catchPhrase = catchPhrase,
-  this.description = description,
-
- this.display = function () {
-
-  var card = document.getElementById('card').cloneNode(true);
-  document.getElementById('table').appendChild(card);
-  document.getElementById('productTitle').innerHTML = this.title;
-  console.log(this.title);
-  document.getElementById('productCatchPhrase').innerHTML = this.catchPhrase;
-  document.getElementById('productDescription').innerHTML = this.description;
+  this.description = description
 
 }
-}
 
-function form (){
+// MANAGING HTML
 
-this.getInputVal = function () {
+var form = {
 
-  var titleValue = document.getElementById('title').value;
-  var catchPhraseValue = document.getElementById('catchPhrase').value;
-  var descriptionValue = document.getElementById('description').value;
-  var newCard = new product (titleValue,catchPhraseValue,descriptionValue);
-  newCard.display ();
+  inputs : document.getElementsByClassName('input'),
+
+display : function () {
+
+  var table = document.getElementById('card');
+  var row = document.createElement('tr');
+  for (var i = 0; i < this.inputs.length; i++) {
+    row.innerHTML += "<td>" + this.inputs[i].value + "</td>";
+  }
+    table.appendChild(row);
 
 },
 
-this.resetInput = function () {
+getInputVal : function () {
 
-  document.getElementById('title').value = "";
-  document.getElementById('catchPhrase').value = "";
-  document.getElementById('description').value = "";
+  var newCard = new product (this.inputs[0].value,this.inputs[1].value,this.inputs[2].value);
+  form.display();
+},
 
-}
-}
+resetInput : function () {
+
+  for (var i = 0; i < this.inputs.length; i++) {
+    this.inputs[i].value ="";
+  };
+  }
+
+};
 
 document.getElementById("create").addEventListener('click',function () {
-  var card = new form;
-  card.getInputVal();
-  card.resetInput();
+  form.getInputVal();
+  form.resetInput();
 });
